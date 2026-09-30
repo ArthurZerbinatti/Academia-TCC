@@ -1,0 +1,111 @@
+/* =========================================================
+   ÁREA GERAL
+========================================================= */
+
+.info-notificacoes {
+    width: 100%;
+
+    padding: 0 40px 50px;
+}
+
+
+/* =========================================================
+   AJUSTE DO TÍTULO
+========================================================= */
+
+.info-notificacoes .titulo {
+    margin-bottom: 5px;
+}
+
+.info-notificacoes .editar {
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   ITEM NÃO LIDO
+========================================================= */
+
+.notif.nao-lida {
+    position: relative;
+
+    background: rgba(214, 0, 0, 0.06);
+}
+
+.notif.nao-lida::before {
+    content: '';
+
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    translate: 0 -50%;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--cor-principal);
+    border-radius: 50%;
+}
+
+.notif h3 {
+    margin-bottom: 3px;
+}
+
+.tempo {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--texto-secundario);
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .info-notificacoes {
+        padding: 0 20px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .info-notificacoes .titulo {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+}
+
+/* =========================================================
+   BADGE DE NOTIFICAÇÕES NA NAVEGAÇÃO
+========================================================= */
+
+.icone-notificacao {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.badge-notificacao {
+    display: none;
+    position: absolute;
+    top: -3px;
+    right: -5px;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--cor-principal);
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.badge-notificacao.visivel {
+    display: block;
+}

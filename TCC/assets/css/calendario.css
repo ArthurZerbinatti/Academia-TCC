@@ -1,0 +1,685 @@
+/* =========================================================
+   CALENDÁRIO
+   ========================================================= */
+
+   .calendario {
+    width: 100%;
+    padding: 5px;
+    color: white;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CALENDÁRIO
+   ========================================================= */
+
+.mes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin: 15px 0;
+    gap: 20px;
+}
+
+.mes h2 {
+    flex: 1;
+
+    text-align: center;
+    font-family: var(--fonte-texto);
+    font-size: 1.4rem;
+    color: white;
+}
+
+
+/* =========================================================
+   BOTÕES DE TROCA
+   MÊS / SEMANA / DIA
+   ========================================================= */
+
+.trocar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.btn-troca {
+    padding: 8px 14px;
+
+    border: var(--borda);
+    border-radius: var(--radius-pequena);
+
+    color: white;
+    background: transparent;
+
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        color var(--transicao),
+        border-color var(--transicao),
+        transform var(--transicao);
+}
+
+.btn-troca:hover {
+    background: var(--cor-principal-transparente);
+    border-color: var(--cor-principal);
+}
+
+.btn-troca.ativo {
+    background: var(--cor-principal);
+    border-color: var(--cor-principal);
+    color: white;
+
+    box-shadow: 0 0 10px var(--cor-principal-transparente);
+}
+
+.btn-troca.ativo:hover {
+    background: var(--cor-principal-hover);
+}
+
+
+/* =========================================================
+   BOTÕES ANTERIOR / PRÓXIMO
+   ========================================================= */
+
+.btn-mes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    background: var(--cor-principal);
+    color: white;
+
+    border-radius: var(--radius-pequena);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        transform var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.btn-mes i {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.btn-mes:hover {
+    background: var(--cor-principal-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--cor-principal-transparente);
+}
+
+.btn-mes:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ÁREA GERADA PELO JAVASCRIPT
+   ========================================================= */
+
+#calendario {
+    width: 100%;
+    min-height: 250px;
+
+    animation: aparecer 0.3s ease;
+}
+
+
+/* =========================================================
+   CALENDÁRIO MENSAL
+   ========================================================= */
+
+.grade-mes {
+    display: grid;
+
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    gap: 8px;
+    width: 100%;
+}
+
+
+/* =========================================================
+   CABEÇALHO DOS DIAS DA SEMANA
+   ========================================================= */
+
+.cabecalho-dia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 35px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   QUADRADOS DOS DIAS
+   ========================================================= */
+
+.quadrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 45px;
+
+    padding: 8px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: black;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-pequena);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        color var(--transicao),
+        border-color var(--transicao),
+        transform var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.quadrado:hover {
+    background: white;
+    border-color: var(--cor-principal);
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   DIAS DE OUTRO MÊS
+   ========================================================= */
+
+.outro-mes {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.outro-mes:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   DIA ATUAL
+   ========================================================= */
+
+.hoje {
+    position: relative;
+
+    background: var(--cor-principal) !important;
+    color: white !important;
+
+    border: 2px solid var(--cor-principal) !important;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 0 2px var(--cor-principal-transparente),
+        0 0 15px var(--cor-principal-transparente);
+}
+
+.hoje:hover {
+    background: var(--cor-principal-hover) !important;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DIA SELECIONADO
+   ========================================================= */
+
+.selecionado {
+    background: var(--cor-principal-transparente) !important;
+    color: white !important;
+
+    border: 2px solid var(--cor-principal) !important;
+
+    font-weight: 700;
+
+    box-shadow: 0 0 10px var(--cor-principal-transparente);
+}
+
+.selecionado:hover {
+    background: var(--cor-principal-transparente-hover) !important;
+}
+
+
+/*
+   Caso o dia seja HOJE e também esteja selecionado,
+   o destaque vermelho mais forte continua aparecendo.
+*/
+
+.hoje.selecionado {
+    background: var(--cor-principal) !important;
+    border-color: white !important;
+}
+
+
+/* =========================================================
+   CALENDÁRIO SEMANAL
+   ========================================================= */
+
+.grade-semana {
+    display: grid;
+
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    gap: 8px;
+    width: 100%;
+}
+
+.dia-semana {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 150px;
+
+    padding: 12px 8px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: black;
+
+    border-radius: var(--radius-pequena);
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        border-color var(--transicao),
+        transform var(--transicao);
+}
+
+.dia-semana:hover {
+    border-color: var(--cor-principal);
+    transform: translateY(-3px);
+}
+
+.dia-semana h3 {
+    margin-bottom: 8px;
+
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+}
+
+.dia-semana strong {
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+/* =========================================================
+   DIA SELECIONADO NA SEMANA
+   ========================================================= */
+
+.dia-semana.selecionado {
+    background: var(--cor-principal-transparente) !important;
+    border: 2px solid var(--cor-principal) !important;
+}
+
+.dia-semana.selecionado strong,
+.dia-semana.selecionado h3 {
+    color: white;
+}
+
+
+/* =========================================================
+   DIA ATUAL NA SEMANA
+   ========================================================= */
+
+.dia-semana.hoje {
+    background: var(--cor-principal) !important;
+    color: white;
+}
+
+.dia-semana.hoje strong,
+.dia-semana.hoje h3 {
+    color: white;
+}
+
+
+/* =========================================================
+   VISUALIZAÇÃO DE UM ÚNICO DIA
+   ========================================================= */
+
+.dia-unico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 300px;
+
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: var(--borda);
+    border-radius: var(--radius-media);
+
+    text-align: center;
+
+    animation: aparecer 0.3s ease;
+}
+
+.dia-unico h1 {
+    margin-bottom: 5px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(3rem, 6vw, 5rem);
+
+    color: white;
+}
+
+.dia-unico h2 {
+    margin-bottom: 5px;
+
+    font-size: 1.5rem;
+    color: white;
+}
+
+.dia-unico p {
+    color: white;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .grade-mes,
+    .grade-semana {
+        gap: 5px;
+    }
+
+    .quadrado {
+        min-height: 40px;
+        padding: 5px;
+        font-size: 0.8rem;
+    }
+
+    .cabecalho-dia {
+        font-size: 0.7rem;
+    }
+
+    .btn-troca {
+        padding: 7px 10px;
+        font-size: 0.8rem;
+    }
+
+    .mes h2 {
+        font-size: 1.1rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .grade-mes,
+    .grade-semana {
+        gap: 3px;
+    }
+
+    .quadrado {
+        min-height: 35px;
+        padding: 3px;
+        font-size: 0.7rem;
+    }
+
+    .cabecalho-dia {
+        font-size: 0.6rem;
+    }
+
+    .btn-mes {
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-mes i {
+        font-size: 1rem;
+    }
+
+    .btn-troca {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+
+    .dia-semana {
+        min-height: 100px;
+        padding: 8px 4px;
+    }
+
+    .dia-semana strong {
+        font-size: 1.1rem;
+    }
+
+    .dia-semana h3 {
+        font-size: 0.65rem;
+    }
+}
+
+
+/* =========================================================
+   MARCAÇÕES DOS DIAS DE TREINO
+   Mesmo visual da página "Meus Treinos" (treinos.php):
+   verde = concluído | vermelho = hoje | cinza = próximo
+   vinho = não realizado | apagado = sem treino
+   ========================================================= */
+
+.calendario,
+.checks-semana {
+    --marca-verde: #2ecc71;
+    --marca-verde-texto: #0b2e1a;
+    --marca-cinza: #262626;
+    --marca-cinza-texto: #9a9a9a;
+    --marca-perdido: #4a1414;
+    --marca-perdido-texto: #ff6b6b;
+}
+
+
+/* =========================================================
+   BARRA SEG A SÁB (TOPO DO CALENDÁRIO)
+   ========================================================= */
+
+.checks-semana .sem i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    background: var(--marca-cinza);
+    color: var(--marca-cinza-texto);
+
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+
+    transition:
+        background-color var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.checks-semana .sem--feito i {
+    background: var(--marca-verde);
+    color: var(--marca-verde-texto);
+}
+
+.checks-semana .sem--hoje i {
+    background: var(--cor-principal);
+    color: white;
+
+    box-shadow: 0 0 10px var(--cor-principal-transparente);
+}
+
+.checks-semana .sem--perdido i {
+    background: var(--marca-perdido);
+    color: var(--marca-perdido-texto);
+}
+
+.checks-semana .sem--descanso {
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   MARCAÇÕES NOS QUADRADOS (MÊS E SEMANA)
+   ========================================================= */
+
+.quadrado.marca-feito,
+.quadrado.marca-perdido,
+.quadrado.marca-proximo {
+    position: relative;
+}
+
+.quadrado.marca-feito::after,
+.quadrado.marca-perdido::after,
+.quadrado.marca-proximo::after {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid white;
+    border-radius: 50%;
+
+    font-size: 0.6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.quadrado.marca-feito::after {
+    content: "✓";
+
+    background: var(--marca-verde);
+    color: var(--marca-verde-texto);
+}
+
+.quadrado.marca-perdido::after {
+    content: "✕";
+
+    background: var(--marca-perdido);
+    color: var(--marca-perdido-texto);
+}
+
+.quadrado.marca-proximo::after {
+    content: "";
+
+    top: 5px;
+    right: 5px;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--marca-cinza);
+}
+
+
+/* =========================================================
+   SELO NA VISUALIZAÇÃO DE UM ÚNICO DIA
+   ========================================================= */
+
+.selo-dia {
+    display: inline-block;
+
+    margin-top: 12px;
+    padding: 4px 12px;
+
+    background: var(--marca-cinza);
+    color: var(--marca-cinza-texto);
+
+    border-radius: var(--radius-pequena);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.selo-dia--feito {
+    background: var(--marca-verde);
+    color: var(--marca-verde-texto);
+}
+
+.selo-dia--hoje {
+    background: var(--cor-principal);
+    color: white;
+
+    box-shadow: 0 0 10px var(--cor-principal-transparente);
+}
+
+.selo-dia--perdido {
+    background: var(--marca-perdido);
+    color: var(--marca-perdido-texto);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE DAS MARCAÇÕES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .quadrado.marca-feito::after,
+    .quadrado.marca-perdido::after {
+        top: 1px;
+        right: 1px;
+
+        width: 12px;
+        height: 12px;
+
+        font-size: 0.5rem;
+    }
+
+    .quadrado.marca-proximo::after {
+        top: 3px;
+        right: 3px;
+
+        width: 6px;
+        height: 6px;
+    }
+}

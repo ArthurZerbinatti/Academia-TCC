@@ -1,0 +1,136 @@
+/* =========================================================
+   ÁREA GERAL
+========================================================= */
+
+.info-avaliacoes {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+
+    padding: 0 40px 50px;
+}
+
+
+/* =========================================================
+   ESTATÍSTICAS RÁPIDAS
+========================================================= */
+
+.container-avaliacao {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.container-avaliacao .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px 10px;
+
+    background: var(--bg-card);
+
+    border: var(--borda);
+    border-radius: var(--radius-media);
+
+    text-align: center;
+
+    box-shadow: var(--sombra);
+
+    transition:
+        border-color var(--transicao),
+        transform var(--transicao);
+}
+
+.container-avaliacao .card:hover {
+    border-color: var(--cor-principal);
+    transform: translateY(-3px);
+}
+
+.container-avaliacao .card i {
+    color: var(--cor-principal);
+    font-size: 1.8rem;
+
+    margin-bottom: 8px;
+}
+
+.container-avaliacao .card h4 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.container-avaliacao .card p {
+    margin-top: 5px;
+
+    color: var(--texto-secundario);
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   HISTÓRICO
+========================================================= */
+
+.linha-avaliacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 14px 0;
+}
+
+.data h3 {
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.data p {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+.valores {
+    display: flex;
+
+    gap: 20px;
+
+    flex-shrink: 0;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .info-avaliacoes {
+        padding: 0 20px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container-avaliacao {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .linha-avaliacao {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+}

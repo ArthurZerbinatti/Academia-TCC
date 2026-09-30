@@ -1,0 +1,1023 @@
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        
+            background: var(--cor-principal);
+            box-shadow: 0 0 10px 5px var(--cor-principal);
+        }
+
+/* BARRA DE NAVEGAÇÃO */
+        
+        nav {
+            position: fixed;
+            padding: 20px;
+            width: 100%;
+            height: 20vh;
+            z-index: 2;
+            
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-nav);
+        }
+        
+        .itens {
+            display: flex;
+            gap: 3rem;
+            margin-right: 30px
+        }
+        
+        .cadastrar {
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+            justify-content: center;
+            
+            background-color: var(--cor-principal);
+            border-radius: 10px;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            transition: var(--transicao);
+        }
+        
+        .cadastrar:hover {
+            background-color: var(--cor-principal-hover);
+            transform: scale(1.1);
+        }
+        
+        .entrar {
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+            justify-content: center;
+            
+            background: none;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            padding: 10px 13px;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        
+        .entrar:hover {
+            transform: scale(1.1);
+        }
+        
+        
+        /* TÍTULO */
+        
+        .titulo {
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 1),
+                rgba(0, 0, 0, .5),
+                rgba(0, 0, 0, 0)
+            ),
+            
+            url(../imagens/inicial.jpeg);
+
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-top: 150px;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .titulo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: space-between;
+            margin: 2rem;
+            height: 300px;
+            width: max-content;
+            padding: 3rem;
+            background-color: var(--bg-principal);
+            border-radius: 20px;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+.titulo-text::before{
+
+    content: '';
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    background: conic-gradient(
+        from var(--angle),
+        transparent 80%,
+        var(--cor-principal) 90%,
+        transparent 100%
+    );
+
+    animation: spin 10s linear infinite;
+
+}
+
+.titulo-text::after{
+
+    content: '';
+
+    position: absolute;
+
+    inset: 3px;
+
+    background: var(--bg-principal);
+
+    border-radius: 20px;
+
+}
+
+.titulo-text > *{
+    position: relative;
+    z-index: 2;
+}
+        
+        .titulo-text h2 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .titulo-text p {
+            color: var(--texto-secundario);
+            font-size: 1.1rem;
+            line-height: 1.5;
+            max-width: 350px;
+        }
+        
+        .sub-titulo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .sub-titulo i {
+            animation: scroll 2s infinite ease-in-out;
+            transition: none !important;
+        }
+
+
+        /* SOBRE NÓS */
+        
+.sobre {
+    min-height: 700px;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(50px, 6vw, 100px);
+    padding: 100px 7%;
+
+    background-image: url(../imagens/concreto-claro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.sobre figure {
+    flex: 1;
+    max-width: 650px;
+    margin: 0;
+}
+
+.sobre img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.fachada {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+
+    border-radius: 70% 30% 65% 35% / 35% 65% 35% 65%;
+    border: none;
+    border-left: 5px solid var(--cor-principal);
+    padding: 8px;
+
+    transition: 0.4s ease;
+}
+
+.fachada:hover {
+    transform: scale(1.02);
+}
+
+.sobre-texto {
+    width: min(100%, 600px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sobre-texto h2 {
+    margin: 0 0 20px;
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1;
+
+    color: var(--bg-principal);
+}
+
+.sobre-texto h2 span {
+    position: relative;
+}
+
+.sobre-texto h2 span::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 60px;
+    height: 4px;
+
+    background: var(--cor-principal);
+    border-radius: 10px;
+}
+
+.sobre-texto p {
+    max-width: 600px;
+
+    margin: 0;
+
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    line-height: 1.8;
+
+    color: #222;
+}
+
+.mais {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 200px;
+
+    padding: 14px 18px;
+
+    background: var(--cor-principal);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mais:hover {
+    background: var(--cor-principal-hover);
+    transform: translateY(-4px);
+}
+
+.mais i {
+    transition: transform 0.3s ease;
+}
+
+.mais:hover i {
+    transform: translateX(5px);
+}
+
+
+       /* ============================= */
+/* CARROSSEL */
+/* ============================= */
+
+.interior {
+    min-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 100px 7%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url(../imagens/concreto.jpg);
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* TÍTULO */
+
+.interior h2 {
+    margin: 0 0 45px;
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1;
+    text-align: center;
+}
+
+.interior h2 span {
+    position: relative;
+}
+
+.interior h2 span::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -12px;
+
+    width: 60px;
+    height: 4px;
+
+    background: var(--cor-principal);
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+}
+
+
+/* ÁREA DO CARROSSEL */
+
+.carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(20px, 4vw, 50px);
+
+    width: 100%;
+}
+
+
+/* IMAGEM */
+
+.slide {
+    display: block;
+
+    width: clamp(280px, 55vw, 650px);
+    height: 430px;
+
+    object-fit: cover;
+
+    border: 2px solid var(--cor-principal);
+    border-radius: 25px;
+
+    filter: brightness(75%);
+
+    transition:
+        filter 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.slide:hover {
+    filter: brightness(100%);
+
+    box-shadow:
+        0 0 15px var(--cor-principal-hover),
+        0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* BOTÕES */
+
+.anterior, .proximo {
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--cor-principal);
+    color: white;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 1.3rem;
+
+    cursor: pointer;
+}
+
+.anterior:hover, .proximo:hover {
+    background: var(--cor-principal-hover);
+
+    transform: scale(1.15);
+
+    box-shadow:
+        0 0 15px var(--cor-principal);
+}
+
+.anterior i, .proximo i {
+    transition: transform 0.3s ease;
+}
+
+.anterior:hover i {
+    transform: translateX(-3px);
+}
+
+.proximo:hover i {
+    transform: translateX(3px);
+}
+
+
+/* INDICADORES */
+
+.indicadores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+.bolinha {
+    width: 10px;
+    height: 10px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #777;
+
+    cursor: pointer;
+}
+
+
+.bolinha:hover {
+    transform: scale(1.2);
+}
+
+
+.bolinha.ativa {
+    width: 30px;
+
+    background: var(--cor-principal);
+
+    border-radius: 10px;
+}
+
+
+/* ANIMAÇÃO DAS IMAGENS */
+
+.sair-esquerda {
+    animation: sairEsquerda 0.5s ease forwards;
+}
+
+.sair-direita {
+    animation: sairDireita 0.5s ease forwards;
+}
+
+.entrar-direita {
+    animation: entrarDireita 0.5s ease forwards;
+}
+
+.entrar-esquerda {
+    animation: entrarEsquerda 0.5s ease forwards;
+}
+
+
+@keyframes sairEsquerda {
+
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes sairDireita {
+
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes entrarDireita {
+
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes entrarEsquerda {
+
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+
+        /* RODAPÉ */
+
+        footer {
+            display: flex;
+            height: 30vh;
+        }
+
+        hr {
+            border: 1px dashed white;
+            height: 100%;
+        }
+
+        .area {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .area h2, .area i{
+            color: var(--cor-principal);
+        }
+
+        .area h2 {
+            margin: 10px 0;
+        }
+
+        .area i {
+            font-size: 25px;
+        }
+
+        .copy {
+            color: var(--texto-secundario) !important;
+            font-size: 15px !important;
+        }
+
+        .area a, .area p {
+            color: white;
+            font-size: 17px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .links a {
+            font-size: 1.5rem;
+        }
+
+        .links a:hover {
+            transform: scale(1.09);
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            height: 100%;
+        }
+
+        .social a i {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .social a:hover {
+            transform: scale(1.2);
+        }
+        
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+/* TABLETS */
+@media (max-width: 900px) {
+
+    /* NAV */
+    nav {
+        height: auto;
+        min-height: 80px;
+        padding: 15px 20px;
+    }
+
+    .itens {
+        gap: 1rem;
+        margin-right: 10px;
+    }
+
+    .cadastrar,
+    .entrar {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+
+    /* TÍTULO */
+    .titulo {
+        padding-top: 120px;
+    }
+
+    .titulo-text {
+        width: auto;
+        max-width: 80%;
+        height: auto;
+        min-height: 250px;
+        padding: 2rem;
+        margin: 2rem;
+    }
+
+    .titulo-text h2 {
+        font-size: 2.5rem;
+    }
+
+
+    /* SOBRE */
+    .sobre {
+        flex-direction: column;
+        padding: 70px 6%;
+        gap: 50px;
+    }
+
+    .sobre figure {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .sobre img,
+    .fachada {
+        height: 400px;
+    }
+
+    .sobre-texto {
+        width: 100%;
+        max-width: 600px;
+        gap: 25px;
+    }
+
+
+    /* CARROSSEL */
+    .interior {
+        padding: 70px 5%;
+    }
+
+    .slide {
+        width: min(65vw, 550px);
+        height: 350px;
+    }
+
+    .carrossel {
+        gap: 20px;
+    }
+
+
+    /* FOOTER */
+    footer {
+        height: auto;
+        min-height: 350px;
+        flex-wrap: wrap;
+        padding: 30px 20px;
+    }
+
+    footer hr {
+        display: none;
+    }
+
+    .area {
+        min-width: 45%;
+        height: 200px;
+    }
+}
+
+
+/* CELULARES */
+@media (max-width: 600px) {
+
+    /* NAV */
+    nav {
+        position: fixed;
+        min-height: 70px;
+        padding: 12px 15px;
+    }
+
+    .itens {
+        gap: 8px;
+        margin-right: 0;
+    }
+
+    .cadastrar,
+    .entrar {
+        font-size: 0.85rem;
+        padding: 7px 9px;
+        border-radius: 7px;
+    }
+
+    .cadastrar:hover,
+    .entrar:hover {
+        transform: none;
+    }
+
+
+    /* TÍTULO */
+    .titulo {
+        min-height: 100svh;
+        padding-top: 100px;
+    }
+
+    .titulo-text {
+        width: calc(100% - 30px);
+        max-width: none;
+
+        min-height: 0;
+        height: auto;
+
+        margin: 15px;
+        padding: 2rem 1.5rem;
+
+        border-radius: 15px;
+    }
+
+    .titulo-text::after {
+        border-radius: 15px;
+    }
+
+    .titulo-text h2 {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    .titulo-text p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .sub-titulo {
+        font-size: 0.9rem;
+    }
+
+
+    /* SOBRE */
+    .sobre {
+        min-height: auto;
+        padding: 60px 20px;
+        gap: 40px;
+    }
+
+    .sobre figure {
+        width: 100%;
+    }
+
+    .sobre img,
+    .fachada {
+        width: 100%;
+        height: 280px;
+    }
+
+    .fachada {
+        border-radius: 50% 20% 50% 20% / 20% 50% 20% 50%;
+        border-left-width: 4px;
+        padding: 5px;
+    }
+
+    .fachada:hover {
+        transform: none;
+    }
+
+    .sobre-texto {
+        gap: 25px;
+    }
+
+    .sobre-texto h2 {
+        font-size: 2.2rem;
+    }
+
+    .sobre-texto p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .mais {
+        width: 180px;
+        padding: 12px 15px;
+    }
+
+
+    /* CARROSSEL */
+    .interior {
+        min-height: auto;
+        padding: 60px 15px;
+    }
+
+    .interior h2 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .carrossel {
+        gap: 8px;
+        width: 100%;
+    }
+
+    .slide {
+        width: calc(100vw - 100px);
+        height: 260px;
+        border-radius: 15px;
+    }
+
+    .anterior,
+    .proximo {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .anterior:hover,
+    .proximo:hover {
+        transform: none;
+    }
+
+    .indicadores {
+        margin-top: 20px;
+    }
+
+
+    /* FOOTER */
+    footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .area {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 130px;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .area h2 {
+        font-size: 1.4rem;
+    }
+
+    .area a,
+    .area p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .links {
+        height: auto;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .links a {
+        font-size: 1.1rem;
+    }
+
+    .social {
+        height: auto;
+    }
+
+    .social a i {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* CELULARES MUITO PEQUENOS */
+@media (max-width: 400px) {
+
+    nav {
+        padding: 10px;
+    }
+
+    .cadastrar,
+    .entrar {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+
+    .titulo-text {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .titulo-text h2 {
+        font-size: 1.7rem;
+    }
+
+    .titulo-text p {
+        font-size: 0.9rem;
+    }
+
+    .sobre {
+        padding: 50px 15px;
+    }
+
+    .sobre img,
+    .fachada {
+        height: 230px;
+    }
+
+    .fachada {
+        border: none;
+    }
+
+    .sobre-texto h2,
+    .interior h2 {
+        font-size: 1.9rem;
+    }
+
+    .slide {
+        width: calc(100vw - 85px);  
+        height: 220px;
+    }
+
+    .anterior,
+    .proximo {
+        width: 32px;
+        height: 32px;
+    }
+}

@@ -1,0 +1,239 @@
+/* =========================================================
+   ÁREA GERAL
+========================================================= */
+
+.info-treinos {
+    width: 100%;
+
+    padding: 0 40px 50px;
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.filtro {
+    padding: 10px 20px;
+
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--texto-secundario);
+
+    border: var(--borda);
+    border-radius: var(--radius-pequena);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        color var(--transicao),
+        border-color var(--transicao);
+}
+
+.filtro:hover {
+    background-color: rgba(255, 255, 255, .8);
+    color: var(--cor-principal);
+    border-color: var(--cor-principal);
+}
+
+.filtro.ativo {
+    background: var(--cor-principal);
+    color: white;
+    border-color: var(--cor-principal);
+}
+
+
+/* =========================================================
+   LISTA DE TREINOS
+========================================================= */
+
+.lista-treinos {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   CARD DO TREINO
+========================================================= */
+
+.treino-card {
+    width: 100%;
+
+    background: var(--bg-card);
+
+    border: 5px double var(--cor-principal);
+    border-radius: var(--radius-media);
+
+    padding: 20px;
+
+    color: white;
+
+    box-shadow: var(--sombra);
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transicao),
+        border-color var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.treino-card:hover {
+    border-color: var(--cor-principal-hover);
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(214, 0, 0, 0.15);
+}
+
+.treino-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.treino-nome h3 {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+}
+
+.treino-nome p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.treino-status {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+}
+
+.treino-card.concluido .treino-status {
+    background: green;
+}
+
+
+/* =========================================================
+   META DO TREINO
+========================================================= */
+
+.treino-meta {
+    display: flex;
+
+    gap: 20px;
+
+    margin: 14px 0;
+
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+.treino-meta i {
+    color: var(--cor-principal);
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   LISTA DE EXERCÍCIOS
+========================================================= */
+
+.exercicios {
+    display: flex;
+    flex-direction: column;
+
+    border-top: var(--borda);
+    padding-top: 14px;
+
+    animation: aparecer 0.3s ease;
+}
+
+.exercicios.oculto {
+    display: none;
+}
+
+.exercicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 1rem;
+}
+
+.exercicio:last-child {
+    border-bottom: none;
+}
+
+.exercicio p {
+    color: white;
+}
+
+.exercicio span {
+    color: var(--texto-secundario);
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .info-treinos {
+        padding: 0 20px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .filtros {
+        gap: 6px;
+    }
+
+    .filtro {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+
+    .treino-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+}

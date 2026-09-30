@@ -1,0 +1,204 @@
+/* =========================================================
+   ÁREA GERAL
+========================================================= */
+
+.info-alunos {
+    width: 100%;
+
+    padding: 0 40px 50px;
+}
+
+
+/* =========================================================
+   BARRA DE BUSCA
+========================================================= */
+
+.busca {
+    margin-bottom: 20px;
+}
+
+.campo-busca {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    max-width: 400px;
+    padding: 0 16px;
+
+    background: var(--bg-card);
+
+    border: var(--borda);
+    border-radius: var(--radius-media);
+
+    transition: border-color var(--transicao);
+}
+
+.campo-busca:focus-within {
+    border-color: var(--cor-principal);
+}
+
+.campo-busca i {
+    color: var(--texto-secundario);
+}
+
+.campo-busca input {
+    width: 100%;
+    height: 44px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: white;
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+}
+
+.campo-busca input::placeholder {
+    color: var(--texto-secundario);
+}
+
+
+/* =========================================================
+   LISTA DE ALUNOS
+========================================================= */
+
+.lista-alunos {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   CARD DO ALUNO
+========================================================= */
+
+.aluno-card {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 16px 20px;
+
+    background: var(--bg-card);
+
+    border: var(--borda);
+    border-radius: var(--radius-media);
+
+    box-shadow: var(--sombra);
+
+    transition:
+        border-color var(--transicao),
+        transform var(--transicao);
+}
+
+.aluno-card:hover {
+    border-color: var(--cor-principal);
+    transform: translateY(-3px);
+}
+
+.icon-pequeno {
+    flex-shrink: 0;
+
+    width: 55px;
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--cor-principal);
+}
+
+.aluno-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.aluno-info h3 {
+    color: white;
+    font-size: 1.05rem;
+    margin-bottom: 3px;
+}
+
+.aluno-info p {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+.aluno-freq {
+    flex-shrink: 0;
+
+    text-align: center;
+}
+
+.aluno-freq span {
+    display: block;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.aluno-freq p {
+    color: var(--texto-secundario);
+    font-size: 0.7rem;
+}
+
+.status {
+    flex-shrink: 0;
+
+    padding: 6px 12px;
+
+    border-radius: var(--radius-pequena);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status.ok {
+    background: rgba(59, 109, 17, 0.2);
+    color: #7ed957;
+}
+
+.status.atencao {
+    background: rgba(255, 165, 0, 0.15);
+    color: orange;
+}
+
+.status.alerta {
+    background: rgba(214, 0, 0, 0.15);
+    color: var(--cor-principal);
+}
+
+.status.novo {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .info-alunos {
+        padding: 0 20px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .aluno-card {
+        flex-wrap: wrap;
+    }
+
+    .aluno-freq {
+        margin-left: 73px;
+    }
+}

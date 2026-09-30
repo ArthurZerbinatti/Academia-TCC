@@ -1,0 +1,812 @@
+/* =========================================================
+                    ESTRUTURA PRINCIPAL
+========================================================= */
+
+header {
+    background: none;
+}
+
+main {
+    margin-left: 15vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-image: url(../imagens/concreto-claro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+section {
+    width: 100%;
+    z-index: 2;
+}
+
+
+/* =========================================================
+                        CABEÇALHO
+========================================================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 260px;
+    padding: 40px;
+    gap: 40px;
+}
+
+.ola {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 20px;
+
+    font-size: 1.5rem;
+}
+
+.ola h2 {
+    margin-bottom: 5px;
+}
+
+.ola p {
+    color: var(--texto-secundario);
+    font-size: 1rem;
+}
+
+.header-info {
+    display: flex;
+    flex: 2;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+
+/* =========================================================
+                ÁREA PRINCIPAL DE INFORMAÇÕES
+========================================================= */
+
+.info {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(400px, 0.8fr);
+
+    gap: 25px;
+
+    padding: 0 40px 50px;
+
+    align-items: start;
+}
+
+
+/* Quando o dia possui treino */
+.semana .sem.com-treino i {
+    color: #e0e0e0 !important; /* Cor verde para o ícone de check */
+    font-weight: bold;
+}
+
+/* Opcional: altera a cor de fundo/borda da bolinha */
+.semana .sem.com-treino {
+    border-color: #2ecc71;
+}
+/* Cada coluna da área de informações */
+
+.info > article {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* Coluna que contém Meus Dados + Estatísticas */
+
+.boxes {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    min-width: 0;
+}
+
+.calendario-area {
+    width: 100%;
+    min-width: 0;
+}
+
+.semana {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sem > i {
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    color: white;
+
+    border-radius: 50%;
+}
+
+.ri-check-line {
+    background: green;
+}
+
+.ri-subtract-line {
+    background: grey;
+}
+
+
+/* =========================================================
+                            CARDS
+========================================================= */
+
+.box,
+.card-h {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    background: var(--bg-card);
+
+    border: 5px double var(--cor-principal);
+
+    border-radius: var(--radius-media);
+
+    gap: 10px;
+
+    color: white;
+
+    box-shadow: var(--sombra);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transicao),
+        border-color var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.card-h {
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-h > i {
+    color: var(--cor-principal);
+    font-size: 2.7rem;
+}
+
+.box:hover,
+.card-h:hover {
+    border-color: var(--cor-principal-hover);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(214, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+                    TÍTULOS DOS CARDS
+========================================================= */
+
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titulo-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.titulo i,
+.titulo2 i {
+    flex-shrink: 0;
+
+    color: var(--cor-principal);
+    font-size: 30px;
+}
+
+.titulo h2,
+.titulo2 h2 {
+    margin-left: 5px;
+    font-size: 1.4rem;
+}
+
+.titulo a {
+    color: white;
+    font-size: .9rem;
+}
+
+.titulo a:hover {
+    color: var(--cor-principal);
+}
+
+
+/* =========================================================
+                    LINHAS DOS DADOS
+========================================================= */
+
+.linha {
+    display: grid;
+
+    grid-template-columns: minmax(130px, .8fr) minmax(0, 1.2fr);
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 48px;
+}
+
+.linha > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.linha i {
+    flex-shrink: 0;
+
+    padding: 3px;
+
+    color: var(--cor-principal);
+    background: var(--cor-principal-transparente);
+
+    border-radius: 4px;
+}
+
+.linha p {
+    min-width: 0;
+
+    color: #ddd;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+                        BOTÃO EDITAR
+========================================================= */
+
+.editar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    color: white;
+    background: var(--cor-principal);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-pequena);
+
+    font-size: 16px;
+
+    transition:
+        background-color var(--transicao),
+        color var(--transicao),
+        transform var(--transicao);
+}
+
+.editar:hover {
+    background: white;
+    color: black;
+
+    border-color: black;
+
+    transform: scale(1.05);
+}
+
+.editar i {
+    color: white;
+    transition: color var(--transicao);
+}
+
+.editar:hover i {
+    color: black;
+}
+
+
+/* =========================================================
+                        ESTATÍSTICAS
+========================================================= */
+
+.container {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+.card {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px 5px;
+
+    background: rgba(255, 255, 255, .02);
+
+    border: var(--borda);
+    border-radius: var(--radius-media);
+
+    text-align: center;
+
+    transition:
+        border-color var(--transicao),
+        transform var(--transicao),
+        background-color var(--transicao);
+}
+
+.card:hover {
+    border-color: var(--cor-principal);
+    background: var(--cor-principal-transparente);
+    transform: translateY(-3px);
+}
+
+.card i {
+    color: white;
+    background: none;
+
+    font-size: 25px;
+}
+
+.card h4 {
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+
+.card p {
+    margin-top: 3px;
+
+    color: #aaa;
+
+    font-size: .7rem;
+    line-height: 1.3;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+                        NOTIFICAÇÕES
+========================================================= */
+
+.notif {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 8px;
+
+    border-radius: var(--radius-pequena);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transicao),
+        transform var(--transicao);
+}
+
+.notif:hover {
+    background: var(--bg-principal-hover);
+    transform: translateX(4px);
+}
+
+.notif > i {
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--cor-principal);
+    background: var(--cor-principal-transparente);
+
+    border-radius: 50%;
+
+    font-size: 22px;
+}
+
+.notif h3 {
+    font-size: 1rem;
+}
+
+.notif p {
+    color: #aaa;
+
+    font-size: .8rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+                        SIDEBAR
+========================================================= */
+
+nav {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    z-index: 10;
+
+    width: 15vw;
+    min-width: 190px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, .95) 10%,
+            rgba(0, 0, 0, .65) 70%,
+            rgba(0, 0, 0, .35)
+        ),
+        url(../imagens/concreto.jpg);
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: 5px 0 25px rgba(0, 0, 0, .5);
+}
+
+nav > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav img {
+    width: 100%;
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: var(--radius-pequena);
+}
+
+
+/* =========================================================
+                    LINKS DA SIDEBAR
+========================================================= */
+
+.links {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 45px;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 11px 10px;
+
+    color: white;
+
+    border-radius: var(--radius-pequena);
+    border-left: 4px solid transparent;
+
+    transition:
+        background-color var(--transicao),
+        border-color var(--transicao),
+        transform var(--transicao);
+}
+
+.links a i {
+    font-size: 20px;
+}
+
+.links a:hover {
+    background: rgba(255, 255, 255, .08);
+
+    border-left-color: var(--cor-principal);
+
+    transform: translateX(3px);
+}
+
+.links .active {
+    background: var(--cor-principal-transparente);
+
+    border-left-color: var(--cor-principal);
+}
+
+.links .active:hover {
+    background: var(--cor-principal-transparente-hover);
+}
+
+
+/* =========================================================
+                        BOTÃO SAIR
+========================================================= */
+
+.sair {
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    color: white;
+    background: var(--cor-principal);
+
+    border-radius: var(--radius-pequena);
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+
+    font-size: 18px;
+
+    transition:
+        background-color var(--transicao),
+        transform var(--transicao);
+}
+
+.sair i {
+    transition: transform var(--transicao);
+}
+
+.sair:hover {
+    background: var(--cor-principal-hover);
+    transform: scale(1.05);
+}
+
+.sair:hover i {
+    transform: translateX(-1px);
+}
+
+
+/* =========================================================
+                    RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    main {
+        margin-left: 190px;
+    }
+
+    nav {
+        width: 190px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .header > article:last-child {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .info {
+        grid-template-columns: 1fr;
+
+        padding: 0 25px 40px;
+    }
+
+    .calendario-area {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    main {
+        margin-left: 0;
+    }
+
+    nav {
+        position: relative;
+
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: auto;
+
+        flex-direction: row;
+
+        padding: 10px 20px;
+    }
+
+    nav > div:first-child {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    nav img {
+        width: 100px;
+        height: 60px;
+    }
+
+    .links {
+        flex-direction: row;
+
+        margin-top: 0;
+
+        gap: 5px;
+    }
+
+    .links a {
+        width: auto;
+        padding: 8px;
+
+        font-size: 0;
+    }
+
+    .links a i {
+        font-size: 22px;
+    }
+
+    nav > div:last-child {
+        width: auto;
+    }
+
+    .sair {
+        width: auto;
+    }
+
+    .header {
+        min-height: auto;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 30px 20px;
+    }
+
+    .header > article:last-child {
+        width: 100%;
+    }
+
+    .info {
+        padding: 0 20px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        height: auto;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .info {
+        padding: 0 15px 30px;
+    }
+
+    .header-info {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .card-h {
+        width: 100%;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .ola {
+        font-size: 1.2rem;
+    }
+
+    .ola .icon {
+        width: 90px;
+    }
+
+    .titulo {
+        align-items: flex-start;
+    }
+
+    .titulo h2 {
+        font-size: 1.15rem;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .linha {
+        grid-template-columns: 1fr;
+        gap: 3px;
+
+        padding: 5px 0;
+    }
+
+    .linha p {
+        padding-left: 30px;
+    }
+
+    .editar {
+        font-size: 14px;
+    }
+}
